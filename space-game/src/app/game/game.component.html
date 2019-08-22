@@ -1,0 +1,24 @@
+<!--<span>-->
+<!--  <span class="btn-default" (click)="startGame(false)">basic game</span>-->
+<!--  <span class="btn-default" (click)="startGame(true)">experimental features</span>-->
+<!--</span>-->
+
+<canvas [width]="width" [height]="height" class="canvas" #canvas></canvas> <br />
+<span>
+  <div style="display: inline-block"><button class="btn-default" (click)="foo(false)">start: false</button></div>
+  <div style="display: inline-block"><button class="btn-default" (click)="foo(true)">start: true</button></div>
+  <div style="display: inline-block">
+    <button class="btn-default" (click)="gameService.forceStopGame()">kill</button>
+  </div>
+  <div style="display: inline-block">
+    <button class="btn-default" (click)="gameService.setLevel(10)">max level</button>
+  </div>
+  <div style="display: inline-block">
+    <button class="btn-default" (click)="gameService.notify('Obaida1234 travelled 10000 Light Years!', 50)">
+      msg0
+    </button>
+  </div>
+  <div style="display: inline-block">
+    <button class="btn-default" (click)="gameService.notify('Bob has joined the lobby', 50)">msg1</button>
+  </div>
+</span>

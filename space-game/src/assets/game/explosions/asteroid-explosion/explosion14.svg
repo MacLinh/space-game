@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48"
+   height="56"
+   viewBox="0 0 12.7 14.816666"
+   version="1.1"
+   id="svg8728"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="explosion14.svg">
+  <defs
+     id="defs8722" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="7.9195959"
+     inkscape:cx="17.439926"
+     inkscape:cy="35.869667"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:pagecheckerboard="true"
+     units="px"
+     inkscape:window-width="1680"
+     inkscape:window-height="1028"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata8725">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-282.18334)">
+    <g
+       id="g9301"
+       transform="matrix(0.41159495,0,0,0.41159495,3.736372,170.3972)">
+      <ellipse
+         ry="6.5982165"
+         rx="6.3040285"
+         cy="289.59167"
+         cx="6.3499999"
+         id="path9294"
+         style="fill:#ff8a4e;fill-opacity:1;fill-rule:evenodd;stroke-width:0.41547993" />
+      <ellipse
+         ry="4.9351892"
+         rx="4.9774222"
+         cy="289.59167"
+         cx="6.3499999"
+         id="path8730-4"
+         style="fill:#ffd65d;fill-opacity:1;fill-rule:evenodd;stroke-width:0.54690433" />
+      <circle
+         r="2.6083474"
+         cy="289.59167"
+         cx="6.3499999"
+         id="path8730"
+         style="fill:#ffffff;fill-rule:evenodd;stroke-width:0.28782114" />
+    </g>
+  </g>
+</svg>
