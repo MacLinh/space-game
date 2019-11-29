@@ -103,40 +103,22 @@ export function loadImages() {
       ]
     };
     res.coin = [
-      loadImage(`${BaseFolder}/micoin/micoin1.svg`),
-      loadImage(`${BaseFolder}/micoin/micoin2.svg`),
-      loadImage(`${BaseFolder}/micoin/micoin3.svg`),
-      loadImage(`${BaseFolder}/micoin/micoin4.svg`),
-      loadImage(`${BaseFolder}/micoin/micoin5.svg`),
-      loadImage(`${BaseFolder}/micoin/micoin6.svg`),
-      loadImage(`${BaseFolder}/micoin/micoin7.svg`),
-      loadImage(`${BaseFolder}/micoin/micoin8.svg`),
-      loadImage(`${BaseFolder}/micoin/micoin9.svg`),
-      loadImage(`${BaseFolder}/micoin/micoin10.svg`),
-      loadImage(`${BaseFolder}/micoin/micoin11.svg`),
-      loadImage(`${BaseFolder}/micoin/micoin12.svg`),
-      loadImage(`${BaseFolder}/micoin/micoin13.svg`),
-      loadImage(`${BaseFolder}/micoin/micoin14.svg`),
-      loadImage(`${BaseFolder}/micoin/micoin15.svg`),
-      loadImage(`${BaseFolder}/micoin/micoin16.svg`),
-      loadImage(`${BaseFolder}/micoin/micoin17.svg`),
-      loadImage(`${BaseFolder}/micoin/micoin18.svg`),
-      loadImage(`${BaseFolder}/micoin/micoin19.svg`),
-      loadImage(`${BaseFolder}/micoin/micoin20.svg`),
-      loadImage(`${BaseFolder}/micoin/micoin21.svg`),
-      loadImage(`${BaseFolder}/micoin/micoin22.svg`),
-      loadImage(`${BaseFolder}/micoin/micoin23.svg`),
-      loadImage(`${BaseFolder}/micoin/micoin24.svg`),
-      loadImage(`${BaseFolder}/micoin/micoin25.svg`),
-      loadImage(`${BaseFolder}/micoin/micoin26.svg`),
-      loadImage(`${BaseFolder}/micoin/micoin27.svg`)
+      loadImage(`${BaseFolder}/ammo/ammo1.svg`),
+      loadImage(`${BaseFolder}/ammo/ammo2.svg`),
+      loadImage(`${BaseFolder}/ammo/ammo3.svg`),
+      loadImage(`${BaseFolder}/ammo/ammo4.svg`),
+      loadImage(`${BaseFolder}/ammo/ammo5.svg`),
+      loadImage(`${BaseFolder}/ammo/ammo6.svg`),
+      loadImage(`${BaseFolder}/ammo/ammo7.svg`),
+      loadImage(`${BaseFolder}/ammo/ammo8.svg`),
+      loadImage(`${BaseFolder}/ammo/ammo9.svg`)
     ];
     res.coinShine = [
-      loadImage(`${BaseFolder}/micoin/shine/shine1.svg`),
-      loadImage(`${BaseFolder}/micoin/shine/shine2.svg`),
-      loadImage(`${BaseFolder}/micoin/shine/shine3.svg`),
-      loadImage(`${BaseFolder}/micoin/shine/shine4.svg`),
-      loadImage(`${BaseFolder}/micoin/shine/shine5.svg`)
+        loadImage(`${BaseFolder}/ammo/shine/shine1.svg`),
+        loadImage(`${BaseFolder}/ammo/shine/shine2.svg`),
+        loadImage(`${BaseFolder}/ammo/shine/shine3.svg`),
+        loadImage(`${BaseFolder}/ammo/shine/shine4.svg`),
+        loadImage(`${BaseFolder}/ammo/shine/shine5.svg`)
     ];
     res.ship = [
       loadImage(`${BaseFolder}/ship/ship1.svg`),

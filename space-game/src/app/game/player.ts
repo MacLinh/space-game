@@ -36,7 +36,7 @@ export class Player extends Fighter {
   ) {
     super(x, y, w, h, images, explosionsImages, 100, 100, damagedImages, laserImages, laserExplosions);
     this.showHp = false;
-    this.ammo = 50;
+    this.ammo = 20;
     this.leftGun.shotInterval = 5;
     this.rightGun.shotInterval = 5;
     this.missleLauncher = new ProjectileSource(
