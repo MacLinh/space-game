@@ -1,6 +1,6 @@
 # space-game
 
 install latest node
-cd space-game
-npm install
-npm start
+<br/>cd space-game
+<br/>npm install
+<br/>npm start
