@@ -812,6 +812,98 @@ class Boost extends _sprite__WEBPACK_IMPORTED_MODULE_1__["Sprite"] {
 
 /***/ }),
 
+/***/ "./src/app/game/forwardList.ts":
+/*!*************************************!*\
+  !*** ./src/app/game/forwardList.ts ***!
+  \*************************************/
+/*! exports provided: ForwardList, Node, Iterator */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ForwardList", function() { return ForwardList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Node", function() { return Node; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Iterator", function() { return Iterator; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+class ForwardList {
+    constructor() {
+        this.head = undefined;
+    }
+    push(value) {
+        if (!this.head) {
+            this.head = new Node(value, undefined);
+        }
+        else {
+            let node = new Node(value, this.head);
+            this.head = node;
+        }
+    }
+    iterator() {
+        return new Iterator(this);
+    }
+    toString() {
+        let result = '[ ';
+        const it = new Iterator(this);
+        while (!it.isDone()) {
+            result += it.next() + ', ';
+        }
+        return result + ']';
+    }
+}
+class Node {
+    constructor(value, next) {
+        this.value = value;
+        this.next = next;
+    }
+}
+class Iterator {
+    constructor(list) {
+        this.list = list;
+        this.previous = undefined;
+        this.current = undefined;
+        this.current = list.head;
+    }
+    isDone() {
+        return this.current == undefined;
+    }
+    peek() {
+        if (this.isDone()) {
+            throw "empty";
+        }
+        return this.current.value;
+    }
+    next() {
+        if (this.isDone()) {
+            throw "empty";
+        }
+        this.previous = this.current;
+        this.current = this.current.next;
+        return this.previous.value;
+    }
+    splice() {
+        if (this.isDone()) {
+            throw "empty";
+        }
+        if (this.current === this.list.head) {
+            let tmp = this.list.head.value;
+            this.list.head = this.current.next;
+            this.previous = this.current;
+            this.current = this.current.next;
+            return tmp;
+        }
+        else {
+            let tmp = this.current.value;
+            this.previous.next = this.current.next;
+            this.current = this.current.next;
+            return tmp;
+        }
+    }
+}
+
+
+/***/ }),
+
 /***/ "./src/app/game/game.component.scss":
 /*!******************************************!*\
   !*** ./src/app/game/game.component.scss ***!
@@ -821,7 +913,7 @@ class Boost extends _sprite__WEBPACK_IMPORTED_MODULE_1__["Sprite"] {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("@import url(\"https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700\");\n.canvas {\n  background-color: rgba(0, 0, 0, 0);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9tYWNsaW5ocGhhbS9Eb2N1bWVudHMvcHJvamVjdHMvc3BhY2UtZ2FtZS9zcGFjZS1nYW1lL3NyYy9hcHAvZ2FtZS9nYW1lLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9nYW1lL2dhbWUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQVEscUZBQUE7QUFDUjtFQUNFLGtDQUFBO0FDQ0YiLCJmaWxlIjoic3JjL2FwcC9nYW1lL2dhbWUuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0IHVybCgnaHR0cHM6Ly9mb250cy5nb29nbGVhcGlzLmNvbS9jc3M/ZmFtaWx5PU1vbnRzZXJyYXQ6MzAwLDQwMCw1MDAsNjAwLDcwMCcpO1xuLmNhbnZhcyB7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMCwgMCwgMCwgMCk7XG59XG4iLCJAaW1wb3J0IHVybChcImh0dHBzOi8vZm9udHMuZ29vZ2xlYXBpcy5jb20vY3NzP2ZhbWlseT1Nb250c2VycmF0OjMwMCw0MDAsNTAwLDYwMCw3MDBcIik7XG4uY2FudmFzIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgwLCAwLCAwLCAwKTtcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("@import url(\"https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700\");\n.canvas {\n  background-color: rgba(0, 0, 0, 0);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9tYWNsaW5ocGhhbS9Eb2N1bWVudHMvcHJvamVjdHMvc3BhY2UtZ2FtZS9zcmMvYXBwL2dhbWUvZ2FtZS5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvZ2FtZS9nYW1lLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFRLHFGQUFBO0FBQ1I7RUFDRSxrQ0FBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvZ2FtZS9nYW1lLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCB1cmwoJ2h0dHBzOi8vZm9udHMuZ29vZ2xlYXBpcy5jb20vY3NzP2ZhbWlseT1Nb250c2VycmF0OjMwMCw0MDAsNTAwLDYwMCw3MDAnKTtcbi5jYW52YXMge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsIDAsIDAsIDApO1xufVxuIiwiQGltcG9ydCB1cmwoXCJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9TW9udHNlcnJhdDozMDAsNDAwLDUwMCw2MDAsNzAwXCIpO1xuLmNhbnZhcyB7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMCwgMCwgMCwgMCk7XG59Il19 */");
 
 /***/ }),
 
@@ -850,6 +942,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _game_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./game.service */ "./src/app/game/game.service.ts");
 /* harmony import */ var _message__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./message */ "./src/app/game/message.ts");
 /* harmony import */ var _projectile__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./projectile */ "./src/app/game/projectile.ts");
+/* harmony import */ var _forwardList__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./forwardList */ "./src/app/game/forwardList.ts");
+
 
 
 
@@ -876,7 +970,7 @@ let GameComponent = class GameComponent {
         this.highScore = 0;
         this.started = false;
         this.level = 1;
-        this.elements = [];
+        this.elements = new _forwardList__WEBPACK_IMPORTED_MODULE_13__["ForwardList"]();
         this.meetingStartedMessage = false;
         this.msgQueue = [];
         this.meetingStarted = false;
@@ -950,10 +1044,11 @@ let GameComponent = class GameComponent {
         this.started = true;
         this.menu.state = 'MAIN';
         this.score = 0;
+        this.gameService.setLevel(1);
         this.level = 1;
         this.playerShip = new _player__WEBPACK_IMPORTED_MODULE_5__["Player"](Width / 2 - 40 / 2, Height - 70, 40, 70, this.images.ship, this.images.explosions.ship, this.images.damagedShip, this.images.laser, this.images.explosions.laser, this.images.missile, this.images.explosions.asteroid, Width, Height);
         this.dev = dev;
-        this.elements = [];
+        this.elements = new _forwardList__WEBPACK_IMPORTED_MODULE_13__["ForwardList"]();
     }
     endGame() {
         if (this.score > this.highScore) {
@@ -1015,9 +1110,9 @@ let GameComponent = class GameComponent {
         }
     }
     updateObstacles(frame) {
-        let i = 0;
-        while (i < this.elements.length) {
-            const s = this.elements[i];
+        let elemIterator = this.elements.iterator();
+        while (!elemIterator.isDone()) {
+            const s = elemIterator.peek();
             s.update(frame);
             if (!s.dying && this.playerShip.intersects(s)) {
                 if (s instanceof _boost__WEBPACK_IMPORTED_MODULE_6__["Boost"]) {
@@ -1056,15 +1151,15 @@ let GameComponent = class GameComponent {
             }
             if (s.isAlive() && s.y < Height) {
                 s.draw(this.context);
-                i++;
+                elemIterator.next();
             }
             else {
                 // so projectiles continue to stay in game even if their owner is dead
                 if (!s.activeProjectiles || !s.activeProjectiles.length) {
-                    this.elements.splice(i, 1);
+                    elemIterator.splice();
                 }
                 else {
-                    i++;
+                    elemIterator.next();
                 }
             }
         }
@@ -1078,7 +1173,9 @@ let GameComponent = class GameComponent {
             if (!p.dying) {
                 if (p.splash) {
                     // we must explode first because the blast radius may be bigger than the original missile
-                    for (const s of targets) {
+                    let targetsIterator = targets.iterator();
+                    while (!targetsIterator.isDone()) {
+                        const s = targetsIterator.next();
                         if (!(s instanceof _boost__WEBPACK_IMPORTED_MODULE_6__["Boost"]) &&
                             !(s instanceof _projectile__WEBPACK_IMPORTED_MODULE_12__["Projectile"]) &&
                             (!s.dying || s.dying === frame) &&
@@ -1087,7 +1184,9 @@ let GameComponent = class GameComponent {
                             break;
                         }
                     }
-                    for (const s of targets) {
+                    targetsIterator = targets.iterator();
+                    while (!targetsIterator.isDone()) {
+                        const s = targetsIterator.next();
                         if (!(s instanceof _boost__WEBPACK_IMPORTED_MODULE_6__["Boost"]) &&
                             !(s instanceof _projectile__WEBPACK_IMPORTED_MODULE_12__["Projectile"]) &&
                             (!s.dying || s.dying === frame) &&
@@ -1097,7 +1196,9 @@ let GameComponent = class GameComponent {
                     }
                 }
                 else {
-                    for (const s of targets) {
+                    let targetsIterator = targets.iterator();
+                    while (!targetsIterator.isDone()) {
+                        const s = targetsIterator.next();
                         if (!(s instanceof _boost__WEBPACK_IMPORTED_MODULE_6__["Boost"]) &&
                             !(s instanceof _projectile__WEBPACK_IMPORTED_MODULE_12__["Projectile"]) &&
                             (!s.dying || s.dying === frame) &&
@@ -2168,7 +2269,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/maclinhpham/Documents/projects/space-game/space-game/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/maclinhpham/Documents/projects/space-game/src/main.ts */"./src/main.ts");
 
 
 /***/ })
