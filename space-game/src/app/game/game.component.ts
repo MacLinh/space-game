@@ -10,6 +10,7 @@ import { Menu } from './menu';
 import { GameService } from './game.service';
 import { Message, Toast } from './message';
 import { Projectile } from './projectile';
+import { ForwardList, Iterator } from './forwardList';
 
 export const Width = 640;
 
@@ -47,7 +48,7 @@ export class GameComponent implements OnInit, AfterViewInit, OnDestroy {
 
   menu: Menu;
 
-  private elements: any[] = [];
+  private elements: ForwardList<any> = new ForwardList<any>();
 
   private meetingStartedMessage: any = false;
 
@@ -164,7 +165,8 @@ export class GameComponent implements OnInit, AfterViewInit, OnDestroy {
     this.menu.state = 'MAIN';
 
     this.score = 0;
-    this.level = 1;
+    this.gameService.setLevel(1);
+    this.level = 1
     this.playerShip = new Player(
       Width / 2 - 40 / 2,
       Height - 70,
@@ -181,7 +183,7 @@ export class GameComponent implements OnInit, AfterViewInit, OnDestroy {
       Height
     );
     this.dev = dev;
-    this.elements = [];
+    this.elements = new ForwardList<any>();
   }
 
   endGame() {
@@ -247,9 +249,9 @@ export class GameComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private updateObstacles(frame) {
-    let i = 0;
-    while (i < this.elements.length) {
-      const s = this.elements[i];
+    let elemIterator = this.elements.iterator();
+    while (!elemIterator.isDone()) {
+      const s = elemIterator.peek();
       s.update(frame);
 
       if (!s.dying && this.playerShip.intersects(s)) {
@@ -289,14 +291,13 @@ export class GameComponent implements OnInit, AfterViewInit, OnDestroy {
 
       if (s.isAlive() && s.y < Height) {
         s.draw(this.context);
-        i++;
+        elemIterator.next(); 
       } else {
         // so projectiles continue to stay in game even if their owner is dead
         if (!s.activeProjectiles || !s.activeProjectiles.length) {
-          this.elements.splice(i, 1);
+          elemIterator.splice();
         } else {
-          i++;
-        }
+          elemIterator.next();        }
       }
     }
   }
@@ -310,7 +311,9 @@ export class GameComponent implements OnInit, AfterViewInit, OnDestroy {
       if (!p.dying) {
         if (p.splash) {
           // we must explode first because the blast radius may be bigger than the original missile
-          for (const s of targets) {
+	  let targetsIterator = targets.iterator();
+          while (!targetsIterator.isDone()) {
+	    const s = targetsIterator.next();
             if (
               !(s instanceof Boost) &&
               !(s instanceof Projectile) &&
@@ -321,7 +324,10 @@ export class GameComponent implements OnInit, AfterViewInit, OnDestroy {
               break;
             }
           }
-          for (const s of targets) {
+
+	  targetsIterator = targets.iterator();
+          while (!targetsIterator.isDone()) {
+	    const s = targetsIterator.next();
             if (
               !(s instanceof Boost) &&
               !(s instanceof Projectile) &&
@@ -332,7 +338,9 @@ export class GameComponent implements OnInit, AfterViewInit, OnDestroy {
             }
           }
         } else {
-          for (const s of targets) {
+	  let targetsIterator = targets.iterator();
+          while (!targetsIterator.isDone()) {
+	    const s = targetsIterator.next();
             if (
               !(s instanceof Boost) &&
               !(s instanceof Projectile) &&
