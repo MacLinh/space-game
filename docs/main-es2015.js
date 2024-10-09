@@ -1058,6 +1058,7 @@ let GameComponent = class GameComponent {
         this.menu.state = 'GAME_OVER';
     }
     mainLoop(frame) {
+        this.context.save();
         this.context.clearRect(0, 0, this.width, this.height);
         if (frame % TimeToIncrementLevel === 0) {
             this.gameService.setLevel(this.level + 1);
@@ -1074,6 +1075,7 @@ let GameComponent = class GameComponent {
             this.menu.draw(this.context);
         }
         this.updateMessages(frame);
+        this.context.restore();
     }
     updateMessages(frame) {
         if (this.meetingStartedMessage) {

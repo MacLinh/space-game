@@ -196,6 +196,8 @@ export class GameComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   mainLoop(frame) {
+    this.context.save();
+
     this.context.clearRect(0, 0, this.width, this.height);
 
     if (frame % TimeToIncrementLevel === 0) {
@@ -213,6 +215,8 @@ export class GameComponent implements OnInit, AfterViewInit, OnDestroy {
       this.menu.draw(this.context);
     }
     this.updateMessages(frame);
+
+    this.context.restore();
   }
 
   private updateMessages(frame) {
