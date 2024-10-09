@@ -1236,17 +1236,17 @@ let GameComponent = class GameComponent {
             boost.vy = 4 + 2 * Math.random();
             this.elements.push(boost);
         }
-        if (frame % fObs < this.level) {
+        if (frame % fObs < 1) {
             // tslint:disable-next-line:no-bitwise
             const flavor = (1 + Math.random() * 3) | 0;
             const asteroid = new _unit__WEBPACK_IMPORTED_MODULE_7__["Asteroid"](location, -200, width, height, this.images.asteroids['asteroid' + flavor], this.images.explosions.asteroid, this.images.asteroids.damaged['asteroid' + flavor]);
             asteroid.vy = 3 + (this.level * Math.random()) / 2;
             this.elements.push(asteroid);
         }
-        if (frame % fAlien === 0 && this.level >= 6) {
+        if (frame % fAlien === 0 && this.level >= 1) {
             const alien = new _alien__WEBPACK_IMPORTED_MODULE_8__["GunnerAlien"](Math.random() * (Width - 54), -200, 54, 100, 
             // tslint:disable-next-line:no-bitwise
-            this.images.aliens['alien' + 1 /*((1 + Math.random() * 1) | 0)*/], this.images.explosions.asteroid, 10 + this.level, 50, false, this.images.alienLaser, this.images.explosions.alienLaser, this.playerShip, 150, this.level - 1, this.height / 2 - (Math.random() * this.height) / 2);
+            this.images.aliens['alien' + 1 /*((1 + Math.random() * 1) | 0)*/], this.images.explosions.asteroid, 10 + this.level, 50, false, this.images.alienLaser, this.images.explosions.alienLaser, this.playerShip, 150, this.level, this.height / 2 - (Math.random() * this.height) / 2);
             alien.vy = 1;
             this.elements.push(alien);
         }

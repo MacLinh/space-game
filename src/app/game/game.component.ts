@@ -384,7 +384,7 @@ export class GameComponent implements OnInit, AfterViewInit, OnDestroy {
       boost.vy = 4 + 2 * Math.random();
       this.elements.push(boost);
     }
-    if (frame % fObs < this.level) {
+    if (frame % fObs < 1) {
       // tslint:disable-next-line:no-bitwise
       const flavor = (1 + Math.random() * 3) | 0;
       const asteroid = new Asteroid(
@@ -400,7 +400,7 @@ export class GameComponent implements OnInit, AfterViewInit, OnDestroy {
       this.elements.push(asteroid);
     }
 
-    if (frame % fAlien === 0 && this.level >= 6) {
+    if (frame % fAlien === 0 && this.level >= 1) {
       const alien = new GunnerAlien(
         Math.random() * (Width - 54),
         -200,
@@ -416,7 +416,7 @@ export class GameComponent implements OnInit, AfterViewInit, OnDestroy {
         this.images.explosions.alienLaser,
         this.playerShip,
         150,
-        this.level - 1,
+        this.level,
         this.height / 2 - (Math.random() * this.height) / 2
       );
       alien.vy = 1;
